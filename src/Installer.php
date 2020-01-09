@@ -1,5 +1,5 @@
 <?php
-namespace PHPCodeChecker;
+namespace Stevenash\PhpcdPrePushHook;
 
 class Installer
 {
