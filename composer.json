@@ -1,5 +1,5 @@
 {
-    "name": "phpcsPrePushHook",
+    "name": "stevenash/phpcs-pre-push-hook",
     "description": "test",
     "license": "MIT",
     "authors": [
