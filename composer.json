@@ -8,9 +8,6 @@
             "email": "110038054@qq.com"
         }
     ],
-    "require": {
-        "squizlabs/php_codesniffer": "3.*"
-    },
     "autoload": {
         "psr-4": {
             "Stevenash\\PhpcdPrePushHook\\": "src"
