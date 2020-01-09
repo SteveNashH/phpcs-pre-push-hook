@@ -1,0 +1,43 @@
+#!/bin/sh
+PHPCS_BIN=vendor/bin/phpcs
+PHPCS_CODING_STANDARD=PSR2
+PHPCS_FILE_PATTERN=" ^app.*\.(php)$"
+remote=$1
+url=$2
+
+while read local_ref local_sha remote_ref remote_sha
+do
+        LOCAL_REF=$local_ref
+done
+branch=`echo $LOCAL_REF | awk -F '/' '{printf $3}'`
+origin_branch=`echo $remote/$branch`
+FILES=$(git diff $LOCAL_REF $origin_branch --stat)
+#echo $FILES
+# FILES=$(git diff HEAD^..HEAD --stat)
+if [ "$FILES" == "" ]; then
+ exit 0
+fi
+echo $FILES
+for FILE in $FILES
+do
+  echo $FILE | egrep  -q $PHPCS_FILE_PATTERN
+  RETVAL=$?
+  if [ "$RETVAL" -eq "0" ]
+  then
+     PHPCS_OUTPUT=$($PHPCS_BIN --standard=$PHPCS_CODING_STANDARD --colors --encoding=utf-8 -n $FILE)
+
+     PHPCS_RETVAL=$?
+     RS=1
+     if [ $PHPCS_RETVAL -ne 0 ];
+     then
+         echo $PHPCS_OUTPUT
+         RS=0
+     fi
+
+ fi
+done
+if [ $RS -eq 0 ]
+then
+    exit 1
+fi
+exit 0
