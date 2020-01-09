@@ -11,7 +11,7 @@ if [ ! -d .git/hooks ]; then
   mkdir -p .git/hooks
 fi
 
-cp phpcs-pre-commit-hook/src/pre-push .git/hooks/pre-push
+cp vendor/stevenash/phpcd-pre-push-hook/src/pre-push .git/hooks/pre-push
 chmod +x .git/hooks/pre-push
 
 if [ "$PRE_COMMIT_EXISTS" = 0 ];
