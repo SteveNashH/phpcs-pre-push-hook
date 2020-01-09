@@ -1,20 +1,17 @@
 {
-  "name": "stevenash/phpcd-pre-push-hook",
-  "description": "PHPCS check before push",
-  "type": "scripts",
-  "license": "GPL-3.0",
-  "authors": [
-    {
-      "name": "Steve Nash",
-      "email": "110038054@qq.com"
+    "name": "phpcsPrePushHook",
+    "description": "test",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "steveNash",
+            "email": "110038054@qq.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Stevenash\\PhpcdPrePushHook\\": "src"
+        }
     }
-  ],
-  "autoload": {
-    "psr-4": {
-      "PHPCodeChecker\\": "src/"
-    }
-  },
-  "require": {
-    "squizlabs/php_codesniffer": "3.*"
-  }
 }
