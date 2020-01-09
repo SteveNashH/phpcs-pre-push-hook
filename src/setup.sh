@@ -16,7 +16,7 @@ chmod +x .git/hooks/pre-push
 
 if [ "$PRE_COMMIT_EXISTS" = 0 ];
 then
-    echo "Pre-commit git hook is installed!"
+    echo "Pre-push git hook is installed!"
 else
-    echo "Pre-commit git hook is updated!"
+    echo "Pre-push git hook is updated!"
 fi
